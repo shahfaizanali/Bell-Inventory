@@ -1,27 +1,33 @@
 = form_for(@phone) do |f|
   %label Company
   = f.text_field :company,:class=>"form-control",:required=>true
+  %br
   .form-group
     %label Model
     = f.text_field :model,:class=>"form-control",:required=>true
+  %br
   .form-group
     %label Quantity
     = f.number_field :quantity,:class=>"form-control",:required=>true,:onchange=>"imei_fields(this)"
+  %br
   .form-group#imeis
-    
+  %br  
   .form-group
     %label Memory
     = f.text_field :memory,:class=>"form-control",:required=>true
+  %br
   .form-group
     %label Color
     = f.text_field :color,:class=>"form-control",:required=>true
+  %br
   .form-group
     %label Remarks
     = f.text_area :remarks,:class=>"form-control"
+  %br
   .form-group
     %label Purchase Price
     = f.number_field :purchase_price,:class=>"form-control"
-
+  %br
   .form-actions
     = f.submit "Create", :class=>"btn btn-success"
     = link_to 'Back', phones_path,:class=>"btn btn-primary"
@@ -29,10 +35,14 @@
 
   function imei_fields(e)
     {
+         $("#imeis").html("");
         if (isNaN($(e).val()))
           alert("Please Enter a Number");
+        else if($(e).val() < 1)
+          alert("Must be Positive Number");
+
         else
-        {  $("#imeis").html("");
+        { 
            for (var i=0;i<$(e).val();i++)
             {
             $("#imeis").append("<label>IMEI#</label><input type='text' name='phone[imeis_attributes]["+i+"][imei_num]' id='phone_imeis_attributes_"+i+"_imei_num'>");
