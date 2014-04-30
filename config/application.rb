@@ -23,7 +23,7 @@ config.action_dispatch.default_headers = {
   'Access-Control-Allow-Origin' => '*',
   'Access-Control-Request-Method' => '*'
 }
-
+config.assets.initialize_on_precompile = false
 
 config.assets.paths << Rails.root.join('app', 'assets', 'stylesheets', 'fonts')
     # Settings in config/environments/* take precedence over those specified here.
