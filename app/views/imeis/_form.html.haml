@@ -1,0 +1,9 @@
+= simple_form_for(@imei) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :imei_num
+    = f.association :phone
+
+  .form-actions
+    = f.button :submit

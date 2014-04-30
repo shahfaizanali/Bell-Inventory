@@ -1,0 +1,21 @@
+%h1 Listing imeis
+
+%table
+  %tr
+    %th Imei num
+    %th Phone
+    %th
+    %th
+    %th
+
+  - @imeis.each do |imei|
+    %tr
+      %td= imei.imei_num
+      %td= imei.phone
+      %td= link_to 'Show', imei
+      %td= link_to 'Edit', edit_imei_path(imei)
+      %td= link_to 'Destroy', imei, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Imei', new_imei_path

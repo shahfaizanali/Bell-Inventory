@@ -1,0 +1,30 @@
+= form_for(@phone) do |f|
+  .form-group
+    = f.label :company
+    = f.text_field :company,:class=>"form-control",:required=>true
+  .form-group
+    = f.label :model
+    = f.text_field :model,:class=>"form-control",:required=>true
+  .form-group
+    = f.label :quantity
+    = f.number_field :quantity,:class=>"form-control",:required=>true
+  .form-group
+    =f.fields_for :imeis do |i|
+      %label IMEI# 
+      = i.text_field :imei_num
+  .form-group
+    = f.label :memory
+    = f.text_field :memory,:class=>"form-control",:required=>true
+  .form-group
+    = f.label :color
+    = f.text_field :color,:class=>"form-control",:required=>true
+  .form-group
+    = f.label :remarks
+    = f.text_area :remarks,:class=>"form-control"
+  .form-group
+    = f.label :purchase_price
+    = f.number_field :purchase_price,:class=>"form-control"
+
+  .form-actions
+    = f.submit "Create", :class=>"btn btn-success"
+    = link_to 'Back', phones_path,:class=>"btn btn-primary"

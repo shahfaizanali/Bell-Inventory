@@ -1,0 +1,27 @@
+%p#notice= notice
+
+%p
+  %b Company:
+  = @phone.company
+%p
+  %b Model:
+  = @phone.model
+%p
+  %b Quantity:
+  = @phone.quantity
+%p
+  %b Memory:
+  = @phone.memory
+%p
+  %b Color:
+  = @phone.color
+%p
+  %b Remarks:
+  = @phone.remarks
+%p
+  %b Purchase price:
+  = @phone.purchase_price
+
+= link_to 'Edit', edit_phone_path(@phone)
+\|
+= link_to 'Back', phones_path

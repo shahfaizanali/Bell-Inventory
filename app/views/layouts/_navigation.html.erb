@@ -1,0 +1,47 @@
+<header class="row-fluid">
+  <div class="container-fluid"> 
+    <a href="/" class="logo"><%=image_tag "admin/logo.png" %></a> 
+    <!-- Static navbar -->
+    <div class="navbar navbar-default" role="navigation">
+      <div class="">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+          <a class="navbar-brand" href="#">Menu</a> </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <% if user_signed_in? %>
+              <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown">Invoices <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><%=link_to "Daily Invoice","#"%></li>
+                </ul>
+              </li>
+            <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown">Stock<b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><%= link_to "Recievers","#" %></li>
+                <li><%= link_to "Phones",phones_path%></li>
+                <li><%= link_to "Accesseries","#" %></li>
+              </ul>
+            </li>
+              <li class="dropdown"><a href="#" class="dropdown-toggle" >help</a></li>
+              <%end%>   
+              <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> <%=user_signed_in? ? "Welcome Admin" : "" %> <b class="caret"></b></a>
+                     
+              <% if user_signed_in? %>
+                <ul class="dropdown-menu">
+                  <li><a href="/admin/dashboard">My Account</a></li>
+                  <li><%=link_to "SignOut",destroy_user_session_path, :method => :delete %></li>
+                </ul>
+              <%else%>
+                <ul class="dropdown-menu">
+                  <li><%=link_to "SignIn",new_user_session_path%></li>
+                </ul>
+              <%end%>
+
+          </ul>
+        </div>
+        <!--/.nav-collapse --> 
+      </div>
+      <!--/.container-fluid --> 
+    </div>
+  </div>
+</header>

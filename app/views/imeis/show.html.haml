@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Imei num:
+  = @imei.imei_num
+%p
+  %b Phone:
+  = @imei.phone
+
+= link_to 'Edit', edit_imei_path(@imei)
+\|
+= link_to 'Back', imeis_path
