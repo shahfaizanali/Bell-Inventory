@@ -1,4 +1,6 @@
 Foodfast::Application.routes.draw do
+  resources :recievers
+
   resources :imeis
   resources :phones
   root :to => "home#index"

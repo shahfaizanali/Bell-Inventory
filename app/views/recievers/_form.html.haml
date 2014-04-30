@@ -1,0 +1,18 @@
+= form_for(@reciever) do |f|
+  .form-group
+    %label Model
+    = f.text_field :model,:class=>"form-control",:required=>true
+    %br
+    %label Reciever#
+    = f.text_field :reciever_num,:class=>"form-control",:required=>true
+    %br
+    %label Recieved From
+    = f.text_field :recieved_from,:class=>"form-control",:required=>true
+    %br
+    %label Remarks
+    = f.text_field :remarks,:class=>"form-control"
+    %br
+
+  .form-actions
+    = f.submit "Create",:class=>"btn btn-success"
+    = link_to 'Back', recievers_path,:class=>"btn btn-primary"

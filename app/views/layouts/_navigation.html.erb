@@ -1,6 +1,6 @@
 <header class="row-fluid">
   <div class="container-fluid"> 
-    <a href="/" class="logo"><%=image_tag "admin/logo.png" %></a> 
+    <a href="/" class="logo" style="font-size: larger; font-weight: bolder; padding-top: 2px; color: white">Bell Inventory</a> 
     <!-- Static navbar -->
     <div class="navbar navbar-default" role="navigation">
       <div class="">
@@ -17,7 +17,7 @@
               </li>
             <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown">Stock<b class="caret"></b></a>
               <ul class="dropdown-menu">
-                <li><%= link_to "Recievers","#" %></li>
+                <li><%= link_to "Recievers",recievers_path %></li>
                 <li><%= link_to "Phones",phones_path%></li>
                 <li><%= link_to "Accesseries","#" %></li>
               </ul>

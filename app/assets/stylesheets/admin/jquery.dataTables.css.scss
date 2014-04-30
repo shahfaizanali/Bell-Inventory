@@ -97,12 +97,13 @@
 /*
  * Sorting
  */
-.sorting { background: asset-url('admin/double-arrow.png') no-repeat center right; }
-.sorting_asc { background: asset-url('admin/small-btm-arrow.png') no-repeat center right; }
-.sorting_desc { background: asset-url('admin/small-up-arrow.png') no-repeat center right; }
+.sorting { background: asset-url('admin/double-arrow.png') no-repeat 5px center; }
+.sorting_asc { background: asset-url('admin/small-btm-arrow.png') no-repeat 5px center; }
+.sorting_desc { background: asset-url('admin/small-up-arrow.png') no-repeat 5px center; }
 
-.sorting_asc_disabled { background: asset-url('admin/sort_asc_disabled.png') no-repeat center right; }
-.sorting_desc_disabled { background: asset-url('admin/sort_desc_disabled.png') no-repeat center right; }
+.sorting_asc_disabled { background: asset-url('admin/sort_asc_disabled.png') no-repeat 5px center; }
+.sorting_desc_disabled { background: asset-url('admin/sort_desc_disabled.png') no-repeat 5px center; }
  
 
 
+.dataTable th ,.dataTable td{padding:5px 15px !important;}

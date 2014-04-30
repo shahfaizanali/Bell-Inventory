@@ -1,34 +1,43 @@
-%h1 Listing phones
+.admin-customer-table-title
+  %h2 Phones
+  %a{"href" =>new_phone_path ,:type=>"button", :class=>"btn btn-success top-right"}
+    %span.glyphicon.glyphicon-plus
+    Add more
 
-%table.table
-  %tr
-    %th Company
-    %th Model
-    %th Quantity
-    %th Memory
-    %th Color
-    %th Remarks
-    %th Purchase price
-    %th
-    %th
-    %th
-
-  - @phones.each do |phone|
-    %tr
-      %td= phone.company
-      %td= phone.model
-      %td= phone.quantity
-      %td= phone.memory
-      %td= phone.color
-      %td= phone.remarks
-      %td= phone.purchase_price
-      %td= link_to 'Show', phone
-      %td= link_to 'Edit', edit_phone_path(phone)
-      %td= link_to 'Destroy', phone, :method => :delete, :data => { :confirm => 'Are you sure?' }
+.new-customer-order-popup-table.menu-catagories-table.table-responsive
+  %table.table#phones
+    %thead
+      %tr
+        %th Company
+        %th Model
+        %th IMEI#
+        %th Memory
+        %th Color
+        %th Remarks
+        %th Purchase price
+        %th
+        %th
+        %th
+    %tbody
+      - @imeis.each do |imei|
+        - phone=imei.phone
+        %tr
+          %td= phone.company
+          %td= phone.model
+          %td= imei.imei_num
+          %td= phone.memory
+          %td= phone.color
+          %td= phone.remarks
+          %td= phone.purchase_price
+          %td
+            = link_to 'Show', phone,:class=>'btn btn-primary',:style=>"color:white"
+          %td
+            = link_to 'Edit', edit_phone_path(phone),:class=>'btn btn-warning',:style=>"color:white"
+          %td
+            = link_to 'Destroy', phone, :method => :delete, :data => { :confirm => 'Are you sure?' },:class=>'btn btn-danger',:style=>"color:white"
 
 %br
-%table{:style=>"width:100% !important;"}
-  %tr
-    %td{:style=>"width:70%;"}
-    %td{:style=>"width:30%;"}
-      = link_to 'Add New Phone', new_phone_path,:class=>"btn btn-primary btn-success"
+
+:javascript
+  $("#phones").dataTable({"aoColumnDefs": [
+      { "bSortable": false, "aTargets": [7,8,9] }]});

@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Model:
+  = @reciever.model
+%p
+  %b Reciever num:
+  = @reciever.reciever_num
+%p
+  %b Recieved from:
+  = @reciever.recieved_from
+%p
+  %b Remarks:
+  = @reciever.remarks
+
+= link_to 'Edit', edit_reciever_path(@reciever)
+\|
+= link_to 'Back', recievers_path

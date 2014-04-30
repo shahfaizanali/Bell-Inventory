@@ -15,10 +15,6 @@
 //= require admin/bootstrap.min
 //= require jquery.validate
 //= require jquery.validate.additional-methods
-//= require admin/menus
-//= require admin/store_details
-//= require admin/online_store_information
-//= require admin/delivery_details
 //= require admin/jquery.ptTimeSelect
 //= require_tree .
 

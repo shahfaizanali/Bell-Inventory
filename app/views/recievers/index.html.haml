@@ -1,0 +1,31 @@
+.admin-customer-table-title
+  %h2 Phones
+  %a{"href" =>new_reciever_path ,:type=>"button", :class=>"btn btn-success top-right"}
+    %span.glyphicon.glyphicon-plus
+    Add more
+
+.new-customer-order-popup-table.menu-catagories-table.table-responsive
+  %table.table#recievers
+    %thead
+      %tr
+        %th Model
+        %th Reciever num
+        %th Recieved from
+        %th Remarks
+        %th
+        %th
+        %th
+    %tbody
+      - @recievers.each do |reciever|
+        %tr
+          %td= reciever.model
+          %td= reciever.reciever_num
+          %td= reciever.recieved_from
+          %td= reciever.remarks
+          %td= link_to 'Show', reciever,:class=>'btn btn-primary',:style=>"color:white"
+          %td= link_to 'Edit', edit_reciever_path(reciever),:class=>'btn btn-warning',:style=>"color:white"
+          %td= link_to 'Destroy', reciever, :method => :delete, :data => { :confirm => 'Are you sure?' },:class=>'btn btn-danger',:style=>"color:white"
+
+:javascript
+  $("#recievers").dataTable({"aoColumnDefs": [
+      { "bSortable": false, "aTargets": [4,5,6] }]});

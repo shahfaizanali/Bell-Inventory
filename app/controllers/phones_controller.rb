@@ -1,10 +1,10 @@
 class PhonesController < ApplicationController
   before_action :set_phone, only: [:show, :edit, :update, :destroy]
-
+before_action :authenticate_user!
   # GET /phones
   # GET /phones.json
   def index
-    @phones = Phone.all
+    @imeis=Imei.all
   end
 
   # GET /phones/1

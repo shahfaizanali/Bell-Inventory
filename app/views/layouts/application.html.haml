@@ -2,8 +2,8 @@
 %html{:xmlns => "http://www.w3.org/1999/xhtml"}
   %head
     %meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0"}
-    %title= content_for?(:title) ? yield(:title) : 'My OrderBox'
-    %meta{:name => "description", :content => "#{content_for?(:description) ? yield(:description) : 'My OrderBox'}"}
+    %title= content_for?(:title) ? yield(:title) : 'Bell Inventory'
+    %meta{:name => "description", :content => "#{content_for?(:description) ? yield(:description) : 'Bell Inventory'}"}
     %script{:src => "https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js", :type => "text/javascript"}
     %link{:href => "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.21/themes/redmond/jquery-ui.css", :rel => "stylesheet", :type => "text/css"}/
     = stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true
