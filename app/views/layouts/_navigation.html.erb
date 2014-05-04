@@ -1,8 +1,8 @@
 <header class="row-fluid">
-  <div class="container-fluid"> 
-    <a href="/" class="logo" style="font-size: larger; font-weight: bolder; padding-top: 2px; color: white">Bell Inventory</a> 
+  <div class="container-fluid" style="margin-top:-8px"> 
+    <a href="/" class="logo" style="font-size: larger; font-weight: bolder; padding-top: 2px; color: white"><%=image_tag "logo.gif" %></a> 
     <!-- Static navbar -->
-    <div class="navbar navbar-default" role="navigation">
+    <div class="navbar navbar-default" style="margin-top:17px" role="navigation">
       <div class="">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
@@ -12,23 +12,21 @@
             <% if user_signed_in? %>
               <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown">Invoices <b class="caret"></b></a>
                 <ul class="dropdown-menu">
-                  <li><%=link_to "Daily Invoice","#"%></li>
+                  <li><%=link_to "Daily Invoice",invoices_path%></li>
                 </ul>
               </li>
             <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown">Stock<b class="caret"></b></a>
               <ul class="dropdown-menu">
                 <li><%= link_to "Recievers",recievers_path %></li>
                 <li><%= link_to "Phones",phones_path%></li>
-                <li><%= link_to "Accesseries","#" %></li>
+                <li><%= link_to "Accesseries",accessories_path %></li>
               </ul>
             </li>
-              <li class="dropdown"><a href="#" class="dropdown-toggle" >help</a></li>
               <%end%>   
               <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> <%=user_signed_in? ? "Welcome Admin" : "" %> <b class="caret"></b></a>
                      
               <% if user_signed_in? %>
                 <ul class="dropdown-menu">
-                  <li><a href="/admin/dashboard">My Account</a></li>
                   <li><%=link_to "SignOut",destroy_user_session_path, :method => :delete %></li>
                 </ul>
               <%else%>

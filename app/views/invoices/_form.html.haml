@@ -1,0 +1,28 @@
+= form_for(@invoice) do |f|
+  .form-group
+    %label Bill To
+    = f.text_field :bill_to,:class=>"form-control",:required=>true
+    = f.hidden_field :user_id, value: current_user.id
+    %br
+    %h4 Items
+    = f.fields_for :invoice_items do |i|
+      %label Description
+      = i.text_field :description,:class=>"",:required=>true
+      %label Rate
+      = i.number_field :price,:class=>"",:required=>true
+      %br
+    %p
+      = link_to_add_fields("Add More",f,:invoice_items)
+    %br
+    %label Payment Mode
+    = f.text_field :payment_mode,:class=>"form-control",:required=>true
+    %br
+    %label Tax Rate(%)
+    = f.number_field :tax_rate,:class=>"form-control",:required=>true
+    %label Other
+    = f.number_field :other,:class=>"form-control"
+    %br
+
+  .form-actions
+    = f.submit @invoice.new_record? ? "Create" : "Update",:class=>"btn btn-success"
+    = link_to 'Back', invoices_path,:class=>"btn btn-primary"

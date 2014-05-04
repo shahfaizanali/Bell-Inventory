@@ -7,7 +7,7 @@ h2 {color:#000000;}
 button.btn{text-shadow:none;}
 i{font-style:normal;}
 label{font-weight:normal !important;margin:0}
-header {background:asset-url('admin/header-bg.png') repeat-x;height:40px;padding:4px 5px 6px 5px;}
+header {background:asset-url('admin/header-bg.png') repeat-x;height:52px;padding:4px 5px 6px 5px;}
 .logo {}
 .login-form-div {bottom:0;height:280px;left:50%;margin-left:-151px;margin-top:0;position:absolute;top:110px;width:302px;}
 .login-form-div input {min-height: 32px !important;}
@@ -137,7 +137,7 @@ footer p {color:#595959;float:right;font-size:13px;line-height:13px;width:50%; t
 .second-div table {background:none repeat scroll 0 0 #FFFFFF;padding:10px;width:100%;}
 .second-div table td {padding:10px;width:50%;}
 .second-div table label ,span.staff label,span.coupon label{border-radius:5px 0 0 5px;border:1px solid #CCCCCC;border-right:none;padding:5px;background:#eeeeee;font-size:14px;line-height:22px;margin:0;float:left;width:40%;font-weight:normal;}
-.second-div table input, .second-div table select ,span.staff input,span.coupon input,textarea{border-radius:0 5px 5px 0;float:left;font-size:14px;height:34px;line-height:20px;padding:7px 5px;width:60%;margin:0;resize:none;}
+.second-div table input, .second-div table select ,span.staff input,span.coupon input,textarea{border-radius:0 5px 5px ;font-size:14px;height:34px;line-height:20px;padding:7px 5px;width:60%;margin:0;resize:none;}
 .second-div table .postcode {width:200px;text-align:center;}
 .second-div table select option{padding:5px;}
 .second-div .half-table{float:left;margin-bottom:10px;background:none;}

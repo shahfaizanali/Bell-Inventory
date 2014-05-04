@@ -38,15 +38,15 @@ $.fn.serializeObject = function() {
     $.each($.map(this.serializeArray(), elementMapper), appendToResult);
     return o;
 };
-function add_fields(link, association, content) {
-    var new_id = new Date().getTime();
-    var regexp = new RegExp("new_" + association, "g");
-    $("#qwe").append(content.replace(regexp, new_id));
-}
 function remove_fields(link) {
-    $(link).prev("input[type=hidden]").val("1");
-    alert("called");
-    $(link).parent().hide();
+  $(link).prev("input[type=hidden]").val("1");
+  alert("called");
+  $(link).parent().hide();
+}
+function add_fields(link, association, content) {
+  var new_id = new Date().getTime();
+  var regexp = new RegExp("new_" + association, "g");
+  $(link).parent().before(content.replace(regexp, new_id));
 }
 
 $(document).bind('click', function(e)

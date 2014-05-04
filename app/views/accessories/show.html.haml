@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Description:
+  = @accessory.description
+%p
+  %b Price:
+  = @accessory.price
+%p
+  %b Quantity:
+  = @accessory.quantity
+%p
+  %b Remarks:
+  = @accessory.remarks
+
+= link_to 'Edit', edit_accessory_path(@accessory)
+\|
+= link_to 'Back', accessories_path

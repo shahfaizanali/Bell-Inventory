@@ -1,8 +1,10 @@
 .admin-customer-table-title
   %h2 Phones
+  %br
+  %input#phones-srch.form-control{placeholder: "Search Phones", type: "text"}
   %a{"href" =>new_phone_path ,:type=>"button", :class=>"btn btn-success top-right"}
     %span.glyphicon.glyphicon-plus
-    Add more
+    Add New
 
 .new-customer-order-popup-table.menu-catagories-table.table-responsive
   %table.table#phones
@@ -15,9 +17,7 @@
         %th Color
         %th Remarks
         %th Purchase price
-        %th
-        %th
-        %th
+        %th{:style=> "min-width: 190px;"}
     %tbody
       - @imeis.each do |imei|
         - phone=imei.phone
@@ -30,14 +30,15 @@
           %td= phone.remarks
           %td= phone.purchase_price
           %td
-            = link_to 'Show', phone,:class=>'btn btn-primary',:style=>"color:white"
-          %td
-            = link_to 'Edit', edit_phone_path(phone),:class=>'btn btn-warning',:style=>"color:white"
-          %td
-            = link_to 'Destroy', phone, :method => :delete, :data => { :confirm => 'Are you sure?' },:class=>'btn btn-danger',:style=>"color:white"
+            = link_to 'Edit', edit_phone_path(phone),:class=>'btn btn-warning'
+            = link_to 'Delete', phone, :method => :delete, :data => { :confirm => 'Are you sure?' },:class=>'btn btn-danger',:style=>"color:white"
 
 %br
 
 :javascript
-  $("#phones").dataTable({"aoColumnDefs": [
-      { "bSortable": false, "aTargets": [7,8,9] }]});
+  phone=$("#phones").dataTable({ sDom: "tp","aoColumnDefs": [
+      { "bSortable": false, "aTargets": [7] }]});
+  $("#phones-srch").keyup(function(){
+    
+    phone.fnFilter($(this).val());
+    });

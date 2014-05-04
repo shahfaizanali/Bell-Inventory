@@ -5,5 +5,8 @@ class ApplicationController < ActionController::Base
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to root_path, :alert => exception.message
   end
-
+   layout :print_pdf_layout
+ def print_pdf_layout
+    params[:print] == 'true' ? 'print' : 'application'
+  end
 end

@@ -1,0 +1,37 @@
+.admin-customer-table-title
+  %h2 Invoices
+  %br
+  %input#invoice-srch.form-control{placeholder: "Search Invoices", type: "text"}
+  %a{"href" =>new_invoice_path ,:type=>"button", :class=>"btn btn-success top-right"}
+    %span.glyphicon.glyphicon-plus
+    Create New
+.new-customer-order-popup-table.menu-catagories-table.table-responsive
+  %table.table#invoice
+    %thead
+      %tr
+        %th Invoice#
+        %th Bill to
+        %th Total
+        %th Payment Mode
+        %th{:style=>" min-width: 286px"} 
+
+    %tbody
+      - @invoices.each do |invoice|
+        %tr
+          %td= invoice.id
+          %td= invoice.bill_to
+          %td= invoice.total
+          %td= invoice.payment_mode
+          %td
+            = link_to 'Show', invoice_path(invoice)+"?print=true",:class=>"btn btn-success"
+            = link_to 'Edit', edit_invoice_path(invoice),:class=>"btn btn-warning"
+            = link_to 'Delete', invoice, :method => :delete, :data => { :confirm => 'Are you sure?' },:class=>'btn btn-danger'
+
+%br
+:javascript
+  invoice=$("#invoice").dataTable({ sDom: "tp","aoColumnDefs": [
+      { "bSortable": false, "aTargets": [4] }]});
+  $("#invoice-srch").keyup(function(){
+    
+    invoice.fnFilter($(this).val());
+    });

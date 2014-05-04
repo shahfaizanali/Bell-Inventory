@@ -28,7 +28,7 @@ before_action :authenticate_user!
 
     respond_to do |format|
       if @reciever.save
-        format.html { redirect_to @reciever, notice: 'Reciever was successfully created.' }
+        format.html { redirect_to recievers_path, notice: 'Reciever was successfully created.' }
         format.json { render action: 'show', status: :created, location: @reciever }
       else
         format.html { render action: 'new' }
@@ -42,7 +42,7 @@ before_action :authenticate_user!
   def update
     respond_to do |format|
       if @reciever.update(reciever_params)
-        format.html { redirect_to @reciever, notice: 'Reciever was successfully updated.' }
+        format.html { redirect_to recievers_path, notice: 'Reciever was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

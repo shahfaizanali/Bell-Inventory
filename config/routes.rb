@@ -1,4 +1,8 @@
 Foodfast::Application.routes.draw do
+  resources :invoices
+
+  resources :accessories
+
   resources :recievers
 
   resources :imeis

@@ -1,0 +1,83 @@
+.form_wrapper  
+    %table{width: "99%"}
+        %tr
+            %td
+                = image_tag 'logo.png', class: 'logo'
+            %td
+                %b{:style=> "font-size:30px;float:right"} INVOICE
+                %table{:style=>"margin-top:20%;font-size:20px !important;"}
+                    %tr
+                        %td Date
+                        %td= @invoice.created_at.to_date
+                    %tr
+                        %td INVOICE#
+                        %td= @invoice.id
+
+                    %tr
+                        %td Rep ID
+                        %td= @invoice.user.profile.first_name
+    %table{width: "28%",:style=> "margin:2%;float:left"}
+        %tr
+            %td{:style=>"background-color:#505051; color:white; font-weight:bolder;height:30px;"} Bill To
+        %tr
+            %td= @invoice.bill_to
+    %br                
+    %br                
+    %br                
+
+    %table{width: "99%",:style=> "margin-top:5%;border:1px solid black;text-align: left"}
+        %tr{:style=>"background-color:#505051;color:white; font-weight:bolder;height:30px;"}
+            %th{:style=> "border-bottom:1px solid black"} Description
+            %th{:style=> "border-bottom:1px solid black"} TAXED
+            %th{:style=> "border-bottom:1px solid black"} Rate
+        - @invoice.invoice_items.each do |p|
+            %tr
+                %td{:style=> "border-right:1px solid black;min-width: 223px;height:70px;"} 
+                    =p.description
+                %td{:style=> "border-right:1px solid black"}
+                    &nbsp;
+                %td{:style=> "border-right:1px solid black"}  
+                    =p.price
+        %tr
+            &nbsp;
+    %table{width: "60%",:style=> "float:left;margin-top: 64px;border:1px solid black;border-top:0px"}
+        %tr{:style=>"background-color:#505051;color:white; font-weight:bolder;height:30px;"}
+            %td{:style=> "border-left:1px solid;border-right:1px solid;"} Other Comments
+        %tr{:style=>"height:70px"}
+            %td{:style=> "border-left:1px solid;border-right:1px solid;"}= @invoice.payment_mode
+    %table{:width=>"35%",:style=>"float:right"}
+        %tr{:style=>"height:30px"}
+            %td Subtotal
+            %td=@invoice.subtotal
+        %tr{:style=>"height:30px"}
+            %td Taxable
+            %td{:style=>"width:173px"}
+        %tr{:style=>"height:30px"}
+            %td Tax Rate
+            %td.border_around_with_td=@invoice.tax_rate.to_s+"%"
+        %tr{:style=>"height:30px"}
+            %td Tax Due
+            %td=@invoice.tax_due
+        %tr{:style=>"height:30px"}
+            %td Other
+            %td.border_around_with_td=@invoice.other
+        %tr{:style=>"height:30px;border-top:7px black double"}
+            %td Total
+            %td=@invoice.total
+
+%br                
+%br                
+%br        
+%br                
+%br        
+%br                
+%br        
+%br                
+%br        
+        
+
+                
+
+        
+    
+ 

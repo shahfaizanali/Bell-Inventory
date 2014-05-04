@@ -10,7 +10,7 @@
     %label Quantity
     = f.number_field :quantity,:class=>"form-control",:required=>true,:onchange=>"imei_fields(this)"
   %br
-  .form-group#imeis
+  .col-4#imeis
   %br  
   .form-group
     %label Memory
@@ -20,9 +20,11 @@
     %label Color
     = f.text_field :color,:class=>"form-control",:required=>true
   %br
+  %br
   .form-group
     %label Remarks
     = f.text_area :remarks,:class=>"form-control"
+  %br
   %br
   .form-group
     %label Purchase Price
@@ -37,9 +39,10 @@
     {
          $("#imeis").html("");
         if (isNaN($(e).val()))
-          alert("Please Enter a Number");
+        {
+          alert("Please Enter a Number");}
         else if($(e).val() < 1)
-          alert("Must be Positive Number");
+          {alert("Must be Positive Number");}
 
         else
         { 

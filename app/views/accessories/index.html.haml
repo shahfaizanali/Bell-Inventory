@@ -1,0 +1,36 @@
+.admin-customer-table-title
+    %h2 Accessories
+    %br
+    %input#acc-srch.form-control{placeholder: "Search Accessories", type: "text"}
+    %a{"href" =>new_accessory_path ,:type=>"button", :class=>"btn btn-success top-right"}
+        %span.glyphicon.glyphicon-plus
+        Add New
+.new-customer-order-popup-table.menu-catagories-table.table-responsive
+    %table.table#acces
+        %thead
+            %tr
+                %th Description
+                %th Price
+                %th Quantity
+                %th Remarks
+                %th{:style=> "min-width: 190px;"}
+        %tbody
+            - @accessories.each do |accessory|
+                %tr
+                    %td= accessory.description
+                    %td= accessory.price
+                    %td= accessory.quantity
+                    %td= accessory.remarks
+                    %td
+                        = link_to 'Edit', edit_accessory_path(accessory),:class=>'btn btn-warning'
+                        = link_to 'Delete', accessory, :method => :delete, :data => { :confirm => 'Are you sure?' },:class=>'btn btn-danger'
+
+%br
+
+:javascript
+    acc=$("#acces").dataTable({ sDom: "tp","aoColumnDefs": [
+        { "bSortable": false, "aTargets": [4] }]});
+    $("#acc-srch").keyup(function(){
+    
+    acc.fnFilter($(this).val());
+    });

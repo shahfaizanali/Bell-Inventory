@@ -1,0 +1,18 @@
+= form_for(@accessory) do |f|
+  .form-group
+    %label Description
+    = f.text_field :description,:class=>"form-control",:required=>true
+    %br
+    %label Price
+    = f.number_field :price,:class=>"form-control",:required=>true
+    %br
+    %label Quantity
+    = f.number_field :quantity,:class=>"form-control",:required=>true
+    %br
+    %label Remarks
+    = f.text_field :remarks,:class=>"form-control"
+    %br
+
+  .form-actions
+    = f.submit @accessory.new_record? ? "Create" : "Update",:class=>"btn btn-success"
+    = link_to 'Back', recievers_path,:class=>"btn btn-primary"
